@@ -41,7 +41,7 @@ const Dashboard = () => {
         <div className="app-header p-6 mb-6 slide-up">
           <div className="flex items-center justify-between mb-3">
             <div>
-              <h1 className="text-2xl font-bold text-foreground mb-1">Hello, Priya! 👋</h1>
+              <h1 className="text-2xl font-bold text-foreground mb-1">Hello, Sarah! 👋</h1>
               <p className="text-muted-foreground text-sm">Sunrise Primary School</p>
             </div>
             <Button variant="glass" size="icon" className="relative pulse-glow">

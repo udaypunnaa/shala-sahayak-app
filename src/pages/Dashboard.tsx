@@ -12,7 +12,10 @@ import {
   Calendar,
   CheckCircle,
   Clock,
-  AlertCircle
+  AlertCircle,
+  Sparkles,
+  TrendingUp,
+  Zap
 } from 'lucide-react';
 
 const Dashboard = () => {
@@ -26,39 +29,46 @@ const Dashboard = () => {
   ];
 
   const quickStats = [
-    { label: 'Present Today', value: '28/35', icon: Users, color: 'text-green-600' },
-    { label: 'Pending Tasks', value: '12', icon: AlertCircle, color: 'text-orange-600' },
-    { label: 'Completed Lessons', value: '4/6', icon: CheckCircle, color: 'text-blue-600' },
+    { label: 'Present Today', value: '28/35', icon: Users, color: 'text-success', bgColor: 'bg-success/10' },
+    { label: 'Pending Tasks', value: '12', icon: AlertCircle, color: 'text-warning', bgColor: 'bg-warning/10' },
+    { label: 'Completed Lessons', value: '4/6', icon: CheckCircle, color: 'text-primary', bgColor: 'bg-primary/10' },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 p-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-surface">
+      <div className="container mx-auto px-4 py-6 max-w-md">
         {/* Header */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between mb-2">
-            <h1 className="text-2xl font-bold text-gray-900">नमस्ते, प्रिया जी!</h1>
-            <Button variant="outline" size="sm" className="relative">
-              <Bell className="h-4 w-4" />
-              <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 bg-red-500">
+        <div className="app-header p-6 mb-6 slide-up">
+          <div className="flex items-center justify-between mb-3">
+            <div>
+              <h1 className="text-2xl font-bold text-foreground mb-1">नमस्ते, प्रिया जी! 🙏</h1>
+              <p className="text-muted-foreground text-sm">Sunrise Primary School</p>
+            </div>
+            <Button variant="glass" size="icon" className="relative pulse-glow">
+              <Bell className="h-5 w-5" />
+              <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-primary text-primary-foreground text-xs">
                 3
               </Badge>
             </Button>
           </div>
-          <p className="text-gray-600">Wednesday, July 10th • Sunrise Primary School</p>
+          <div className="flex items-center gap-2">
+            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+              Wednesday, July 10th
+            </Badge>
+          </div>
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-3 gap-3 mb-6">
           {quickStats.map((stat, index) => (
-            <Card key={index} className="bg-white/80 backdrop-blur-sm border-0 shadow-sm">
+            <Card key={index} className="glass-card border-0 shadow-lg interactive-hover slide-up" style={{ animationDelay: `${index * 100}ms` }}>
               <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-gray-600">{stat.label}</p>
-                    <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
+                <div className="text-center">
+                  <div className={`${stat.bgColor} rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3`}>
+                    <stat.icon className={`h-6 w-6 ${stat.color}`} />
                   </div>
-                  <stat.icon className={`h-8 w-8 ${stat.color}`} />
+                  <p className="text-2xl font-bold text-foreground mb-1">{stat.value}</p>
+                  <p className="text-xs text-muted-foreground">{stat.label}</p>
                 </div>
               </CardContent>
             </Card>
@@ -66,71 +76,81 @@ const Dashboard = () => {
         </div>
 
         {/* Today's Schedule */}
-        <Card className="mb-6 bg-white/80 backdrop-blur-sm border-0 shadow-sm">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Calendar className="h-5 w-5 text-orange-600" />
+        <Card className="glass-card border-0 shadow-lg mb-6 slide-up" style={{ animationDelay: '300ms' }}>
+          <CardHeader className="pb-4">
+            <CardTitle className="flex items-center gap-3 text-lg">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Calendar className="h-5 w-5 text-primary" />
+              </div>
               Today's Classes
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {todayClasses.map((class_, index) => (
-                <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-gray-50">
-                  <div className="flex items-center gap-3">
-                    <div className="flex flex-col items-center">
-                      <Clock className="h-4 w-4 text-gray-500 mb-1" />
-                      <span className="text-sm font-medium">{class_.time}</span>
+          <CardContent className="space-y-3">
+            {todayClasses.map((class_, index) => (
+              <div key={index} className="p-4 rounded-xl bg-card/50 border border-border/50 interactive-hover">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="flex flex-col items-center bg-primary/10 rounded-lg p-2 min-w-[60px]">
+                      <Clock className="h-4 w-4 text-primary mb-1" />
+                      <span className="text-xs font-medium text-primary">{class_.time}</span>
                     </div>
                     <div>
-                      <h3 className="font-medium text-gray-900">{class_.subject}</h3>
-                      <p className="text-sm text-gray-600">{class_.grade}</p>
+                      <h3 className="font-semibold text-foreground text-sm">{class_.subject}</h3>
+                      <p className="text-xs text-muted-foreground">{class_.grade}</p>
                     </div>
                   </div>
                   <Badge 
                     variant={class_.status === 'current' ? 'default' : 'secondary'}
-                    className={class_.status === 'current' ? 'bg-green-500' : ''}
+                    className={class_.status === 'current' ? 'bg-primary text-primary-foreground pulse-glow' : 'bg-secondary/50'}
                   >
-                    {class_.status === 'current' ? 'Now' : 'Upcoming'}
+                    {class_.status === 'current' ? '▶ Live' : 'Upcoming'}
                   </Badge>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </CardContent>
         </Card>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 gap-4">
           <Button 
-            className="h-24 flex-col gap-2 bg-blue-500 hover:bg-blue-600 text-white"
+            size="lg"
+            variant="premium"
+            className="h-20 flex-col gap-3 rounded-2xl"
             onClick={() => navigate('/attendance')}
           >
             <Users className="h-6 w-6" />
-            <span className="text-sm">Take Attendance</span>
+            <span className="text-sm font-medium">Take Attendance</span>
           </Button>
           
           <Button 
-            className="h-24 flex-col gap-2 bg-green-500 hover:bg-green-600 text-white"
+            size="lg"
+            variant="glass"
+            className="h-20 flex-col gap-3 rounded-2xl bg-success/10 border-success/20 text-success hover:bg-success/20"
             onClick={() => navigate('/content')}
           >
-            <BookOpen className="h-6 w-6" />
-            <span className="text-sm">Generate Content</span>
+            <Sparkles className="h-6 w-6" />
+            <span className="text-sm font-medium">AI Content</span>
           </Button>
           
           <Button 
-            className="h-24 flex-col gap-2 bg-purple-500 hover:bg-purple-600 text-white"
+            size="lg"
+            variant="glass"
+            className="h-20 flex-col gap-3 rounded-2xl bg-accent/10 border-accent/20 text-accent hover:bg-accent/20"
             onClick={() => navigate('/reports')}
           >
-            <BarChart3 className="h-6 w-6" />
-            <span className="text-sm">View Reports</span>
+            <TrendingUp className="h-6 w-6" />
+            <span className="text-sm font-medium">Analytics</span>
           </Button>
           
           <Button 
-            className="h-24 flex-col gap-2 bg-orange-500 hover:bg-orange-600 text-white"
+            size="lg"
+            variant="glass"
+            className="h-20 flex-col gap-3 rounded-2xl bg-warning/10 border-warning/20 text-warning hover:bg-warning/20"
             onClick={() => console.log('AI Assistant coming soon!')}
           >
-            <AlertCircle className="h-6 w-6" />
-            <span className="text-sm">AI Assistant</span>
+            <Zap className="h-6 w-6" />
+            <span className="text-sm font-medium">AI Assistant</span>
           </Button>
         </div>
       </div>

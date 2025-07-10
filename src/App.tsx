@@ -8,7 +8,12 @@ import Dashboard from "./pages/Dashboard";
 import Attendance from "./pages/Attendance";
 import ContentGenerator from "./pages/ContentGenerator";
 import Reports from "./pages/Reports";
+import Students from "./pages/Students";
+import Lessons from "./pages/Lessons";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import Navigation from "./components/Navigation";
 
 const queryClient = new QueryClient();
 
@@ -18,13 +23,20 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/attendance" element={<Attendance />} />
-          <Route path="/content" element={<ContentGenerator />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="relative">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/attendance" element={<Attendance />} />
+            <Route path="/content" element={<ContentGenerator />} />
+            <Route path="/students" element={<Students />} />
+            <Route path="/lessons" element={<Lessons />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Navigation />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

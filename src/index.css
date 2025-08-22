@@ -8,115 +8,98 @@
 
 @layer base {
   :root {
-    /* Core Brand Colors */
-    --background: 20 14.3% 4.1%;
-    --foreground: 60 9.1% 97.8%;
+    /* Clean Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 15%;
 
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%;
 
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
 
-    /* Primary Brand - Warm Orange */
-    --primary: 25 95% 53%;
-    --primary-foreground: 60 9.1% 97.8%;
-    --primary-glow: 25 100% 65%;
+    /* Simple Blue Primary */
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 210 100% 60%;
 
-    /* Secondary - Deep Blue */
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
+    /* Light Gray Secondary */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 15%;
 
     /* Muted Colors */
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Accent - Vibrant Green */
-    --accent: 142 76% 36%;
-    --accent-foreground: 355.7 100% 97.3%;
+    /* Subtle Accent */
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 15%;
 
-    /* Status Colors */
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
+    /* Simple Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
     
-    --success: 120 100% 25%;
-    --success-foreground: 120 100% 95%;
+    --success: 120 100% 40%;
+    --success-foreground: 0 0% 100%;
     
-    --warning: 38 92% 50%;
-    --warning-foreground: 48 96% 10%;
+    --warning: 45 100% 50%;
+    --warning-foreground: 0 0% 100%;
 
-    /* UI Elements */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 25 95% 53%;
+    /* Minimal UI Elements */
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 210 100% 50%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-surface: linear-gradient(145deg, hsl(20 14.3% 4.1%), hsl(24 9.8% 10%));
-    --gradient-card: linear-gradient(145deg, hsl(24 9.8% 10%), hsl(20 14.3% 4.1%));
+    /* Simple Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 50%), hsl(210 100% 60%));
+    --gradient-surface: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 98%), hsl(0 0% 100%));
     
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(var(--primary) / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(var(--primary) / 0.1), 0 2px 4px -2px hsl(var(--primary) / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(var(--primary) / 0.1), 0 4px 6px -4px hsl(var(--primary) / 0.1);
-    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.3);
+    /* Minimal Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+    --shadow-md: 0 2px 4px 0 hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 4px 8px 0 hsl(0 0% 0% / 0.1);
+    --shadow-glow: 0 0 0 1px hsl(210 100% 50% / 0.2);
 
     /* App Specific */
-    --app-header: 24 9.8% 10%;
-    --glass-bg: hsla(20, 14.3%, 4.1%, 0.8);
-    --glass-border: hsla(60, 9.1%, 97.8%, 0.1);
+    --app-header: 0 0% 100%;
+    --glass-bg: hsla(0, 0%, 100%, 0.95);
+    --glass-border: hsla(0, 0%, 0%, 0.1);
   }
 
   .light {
-    /* TeachAssist Light Theme - Clean White Background */
+    /* Same as root - already light theme */
     --background: 0 0% 100%;
-    --foreground: 212 12% 15%;
-
+    --foreground: 0 0% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 212 12% 15%;
-
+    --card-foreground: 0 0% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 212 12% 15%;
-
-    /* Primary - Modern Blue */
-    --primary: 217 91% 60%;
+    --popover-foreground: 0 0% 15%;
+    --primary: 210 100% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 217 91% 70%;
-
-    /* Secondary - Soft Gray */
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 212 12% 15%;
-
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-
-    /* Accent - Green for success actions */
-    --accent: 134 61% 41%;
-    --accent-foreground: 0 0% 100%;
-
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 217 91% 60%;
-
-    /* Success - Green */
-    --success: 134 61% 41%;
+    --primary-glow: 210 100% 60%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 15%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 15%;
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 210 100% 50%;
+    --success: 120 100% 40%;
     --success-foreground: 0 0% 100%;
-    
-    /* Warning - Amber */
-    --warning: 43 96% 56%;
+    --warning: 45 100% 50%;
     --warning-foreground: 0 0% 100%;
-
-    /* Destructive - Red */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-
-    --gradient-surface: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 98%));
-    --gradient-card: linear-gradient(145deg, hsl(210 40% 98%), hsl(0 0% 100%));
+    --gradient-surface: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 98%), hsl(0 0% 100%));
     --app-header: 0 0% 100%;
-    --glass-bg: hsla(0, 0%, 100%, 0.9);
-    --glass-border: hsla(212, 12%, 15%, 0.08);
+    --glass-bg: hsla(0, 0%, 100%, 0.95);
+    --glass-border: hsla(0, 0%, 0%, 0.1);
   }
 
   .dark {

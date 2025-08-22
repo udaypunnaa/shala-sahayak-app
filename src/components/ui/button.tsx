@@ -17,6 +17,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         glass: "glass-card text-foreground hover:bg-accent/20 hover:scale-105 active:scale-95",
         premium: "bg-gradient-primary text-primary-foreground hover:scale-105 active:scale-95 shadow-glow",
+        success: "bg-success text-success-foreground hover:bg-success/90 hover:scale-105 active:scale-95 shadow-md",
+        warning: "bg-warning text-warning-foreground hover:bg-warning/90 hover:scale-105 active:scale-95 shadow-md",
       },
       size: {
         default: "h-12 px-6 py-3",

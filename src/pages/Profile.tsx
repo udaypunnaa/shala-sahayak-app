@@ -15,7 +15,8 @@ import {
   Edit,
   Star,
   TrendingUp,
-  Target
+  Target,
+  CheckCircle
 } from 'lucide-react';
 
 const Profile = () => {
@@ -53,11 +54,18 @@ const Profile = () => {
     }
   ];
 
+  const analytics = {
+    attendance: { percentage: 92, trend: '+5%' },
+    tasks: { completed: 85, pending: 15 },
+    classes: { taken: 450, rating: 4.9 },
+    career: { courses: 3, certificates: 2 }
+  };
+
   const statistics = [
-    { label: 'Total Students', value: '125', icon: Users, color: 'text-primary', bgColor: 'bg-primary/10' },
-    { label: 'Classes Taught', value: '450', icon: BookOpen, color: 'text-success', bgColor: 'bg-success/10' },
-    { label: 'Years Experience', value: '8', icon: Calendar, color: 'text-accent', bgColor: 'bg-accent/10' },
-    { label: 'Average Rating', value: '4.9', icon: Star, color: 'text-warning', bgColor: 'bg-warning/10' },
+    { label: 'Attendance %', value: `${analytics.attendance.percentage}%`, icon: Users, color: 'text-primary', bgColor: 'bg-primary/10', trend: analytics.attendance.trend },
+    { label: 'Task Completion', value: `${analytics.tasks.completed}%`, icon: CheckCircle, color: 'text-success', bgColor: 'bg-success/10' },
+    { label: 'Classes Rating', value: analytics.classes.rating, icon: Star, color: 'text-warning', bgColor: 'bg-warning/10' },
+    { label: 'Certificates', value: analytics.career.certificates, icon: Award, color: 'text-accent', bgColor: 'bg-accent/10' },
   ];
 
   return (
@@ -142,7 +150,12 @@ const Profile = () => {
                 <div className={`${stat.bgColor} rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3`}>
                   <stat.icon className={`h-6 w-6 ${stat.color}`} />
                 </div>
-                <p className="text-2xl font-bold text-foreground mb-1">{stat.value}</p>
+                <div className="flex items-center justify-center gap-1">
+                  <p className="text-2xl font-bold text-foreground">{stat.value}</p>
+                  {stat.trend && (
+                    <span className="text-xs text-success font-medium">{stat.trend}</span>
+                  )}
+                </div>
                 <p className="text-xs text-muted-foreground">{stat.label}</p>
               </CardContent>
             </Card>
